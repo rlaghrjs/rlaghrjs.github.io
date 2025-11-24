@@ -67,7 +67,7 @@ const SKILLS = [
   },
   {
     name: "Spring Boot",
-    level: 80,
+    level: 75,
     Icon: SiSpringboot,
     color: "bg-emerald-500",
     iconClass: "text-emerald-500",
@@ -75,7 +75,7 @@ const SKILLS = [
   },
   {
     name: "Python",
-    level: 85,
+    level: 80,
     Icon: SiPython,
     color: "bg-yellow-500",
     iconClass: "text-yellow-500",
@@ -91,7 +91,7 @@ const SKILLS = [
   },
   {
     name: "Firebase",
-    level: 75,
+    level: 70,
     Icon: SiFirebase,
     color: "bg-amber-500",
     iconClass: "text-amber-500",
@@ -184,7 +184,7 @@ export function DeveloperPortfolioFramed() {
               const el = document.getElementById("home");
               if (el) el.scrollIntoView({ behavior: "smooth" });
             }}
-            className="font-semibold tracking-tight text-lg"
+             className="font-semibold tracking-tight text-lg text-neutral-900 dark:text-neutral-50 hover:text-emerald-600 dark:hover:text-emerald-400 transition"
           >
             김호건<span className="text-emerald-500">_</span>
           </a>
@@ -197,7 +197,7 @@ export function DeveloperPortfolioFramed() {
                 e.preventDefault();
                 document.getElementById("home")?.scrollIntoView({ behavior: "smooth" });
               }}
-              className="hover:text-emerald-600 dark:hover:text-emerald-400 transition"
+               className="font-semibold tracking-tight text-base text-neutral-900 dark:text-neutral-50 hover:text-emerald-600 dark:hover:text-emerald-400 transition"
             >
               Home
             </a>
@@ -208,7 +208,7 @@ export function DeveloperPortfolioFramed() {
                 e.preventDefault();
                 document.getElementById("introduction")?.scrollIntoView({ behavior: "smooth" });
               }}
-              className="hover:text-emerald-600 dark:hover:text-emerald-400 transition"
+               className="font-semibold tracking-tight text-base text-neutral-900 dark:text-neutral-50 hover:text-emerald-600 dark:hover:text-emerald-400 transition"
             >
               Introduction
             </a>
@@ -219,7 +219,7 @@ export function DeveloperPortfolioFramed() {
                 e.preventDefault();
                 document.getElementById("skills")?.scrollIntoView({ behavior: "smooth" });
               }}
-              className="hover:text-emerald-600 dark:hover:text-emerald-400 transition"
+               className="font-semibold tracking-tight text-base text-neutral-900 dark:text-neutral-50 hover:text-emerald-600 dark:hover:text-emerald-400 transition"
             >
               Skills
             </a>
@@ -230,42 +230,49 @@ export function DeveloperPortfolioFramed() {
                 e.preventDefault();
                 document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
               }}
-              className="hover:text-emerald-600 dark:hover:text-emerald-400 transition"
+               className="font-semibold tracking-tight text-base text-neutral-900 dark:text-neutral-50 hover:text-emerald-600 dark:hover:text-emerald-400 transition"
             >
               Projects
             </a>
 
+            {/*
             <a
               href="#contact"
               onClick={(e) => {
                 e.preventDefault();
                 document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
               }}
-              className="hover:text-emerald-600 dark:hover:text-emerald-400 transition"
+               className="font-semibold tracking-tight text-base text-neutral-900 dark:text-neutral-50 hover:text-emerald-600 dark:hover:text-emerald-400 transition"
             >
               Contact
             </a>
+            */}
           </nav>
         </div>
       </header>
 
 
       {/* Hero */}
-      <section id="home" className="w-full bg-neutral-50 dark:bg-neutral-950 py-14">
+      <section id="home" className="w-full bg-neutral-50 dark:bg-neutral-950 py-20">
         <div className="mx-auto max-w-6xl px-4">
           <p className="font-mono text-sm text-emerald-500 mb-2">$ hello</p>
           <h1 className="text-4xl sm:text-5xl font-bold tracking-tight">
-            AI와 백엔드로
+            더 나은 서비스를
             <br />
-            <span className="text-emerald-500">실사용 서비스를 만드는</span>
+            <span className="text-emerald-500">만들기 위해 노력하는</span>
             <br />
             개발자 김호건입니다.
           </h1>
+          <br />
+
+          {/*
           <p className="mt-5 text-sm sm:text-base text-neutral-600 dark:text-neutral-400 max-w-xl">
             웹과 모바일, 머신러닝을 결합해 실제로 사람들이 쓰는 제품을 만드는 데 관심이 많습니다.
             성능과 구조, 사용자 경험 사이의 균형을 고민합니다.
           </p>
-          <div className="mt-7 flex flex-wrap gap-3">
+          */}
+
+          <div className="mt-7 flex flex-wrap gap-3 justify-center">
             <a
               href="#projects"
               onClick={(e) => {
@@ -287,7 +294,7 @@ export function DeveloperPortfolioFramed() {
       </section>
 
       {/* Introduction */}
-      <section id="introduction" className="w-full bg-neutral-50 dark:bg-neutral-950 pb-14">
+      <section id="introduction" className="w-full bg-neutral-50 dark:bg-neutral-950 pb-20">
         <div className="mx-auto max-w-6xl px-4">
           <Card>
             <div className="p-6">
@@ -344,7 +351,6 @@ export function DeveloperPortfolioFramed() {
               <div className="mt-6 flex flex-wrap gap-2">
                 <Badge>Backend &amp; AI</Badge>
                 <Badge>Spring / Flask</Badge>
-                <Badge>React</Badge>
                 <Badge>Android</Badge>
               </div>
 
@@ -353,10 +359,11 @@ export function DeveloperPortfolioFramed() {
         </div>
       </section>
 
+
       {/* Skills */}
       <section
         id="skills"
-        className="w-full bg-white dark:bg-neutral-900 py-14 border-t border-neutral-200/70 dark:border-neutral-800/70"
+        className="w-full bg-white dark:bg-neutral-900 py-20 border-t border-neutral-200/70 dark:border-neutral-800/70"
       >
         <div className="mx-auto max-w-6xl px-4">
           <SectionLabel text="skills" />
@@ -403,13 +410,19 @@ export function DeveloperPortfolioFramed() {
             <div className="rounded-xl border border-dashed border-neutral-300 dark:border-neutral-700 px-4 py-3 text-xs text-neutral-600 dark:text-neutral-300 flex flex-wrap gap-2">
               {/* 여기에 자유롭게 추가해서 쓰면 됨 */}
               <span className="inline-flex items-center rounded-full border border-neutral-200 dark:border-neutral-700 px-2 py-0.5">
-                React
+                JavaScript
               </span>
               <span className="inline-flex items-center rounded-full border border-neutral-200 dark:border-neutral-700 px-2 py-0.5">
-                TypeScript
+                React
+              </span>              
+              <span className="inline-flex items-center rounded-full border border-neutral-200 dark:border-neutral-700 px-2 py-0.5">
+                Gradle
               </span>
               <span className="inline-flex items-center rounded-full border border-neutral-200 dark:border-neutral-700 px-2 py-0.5">
                 MySQL
+              </span>
+              <span className="inline-flex items-center rounded-full border border-neutral-200 dark:border-neutral-700 px-2 py-0.5">
+                AWS
               </span>
               <span className="inline-flex items-center rounded-full border border-neutral-200 dark:border-neutral-700 px-2 py-0.5">
                 Git
@@ -425,7 +438,7 @@ export function DeveloperPortfolioFramed() {
 
 
       {/* Projects */}
-      <section id="projects" className="w-full bg-neutral-50 dark:bg-neutral-950 py-14 border-t border-neutral-200/70 dark:border-neutral-800/70">
+      <section id="projects" className="w-full bg-neutral-50 dark:bg-neutral-950 py-20 border-t border-neutral-200/70 dark:border-neutral-800/70">
         <div className="mx-auto max-w-6xl px-4">
           <SectionLabel text="projects" />
 
@@ -459,6 +472,7 @@ export function DeveloperPortfolioFramed() {
                           <IconGitHub />
                           Code
                         </a>
+                        {/*
                         <a
                           href={p.links.demo}
                           className="inline-flex items-center gap-2 rounded-lg border px-3 py-1.5 hover:bg-neutral-100/70 dark:hover:bg-neutral-800/60"
@@ -466,6 +480,7 @@ export function DeveloperPortfolioFramed() {
                           <IconLink />
                           Demo
                         </a>
+                        */}
                       </div>
                     </div>
                   </Card>
@@ -503,6 +518,7 @@ export function DeveloperPortfolioFramed() {
                           <IconGitHub />
                           Code
                         </a>
+                        {/*
                         <a
                           href={p.links.demo}
                           className="inline-flex items-center gap-2 rounded-lg border px-3 py-1.5 hover:bg-neutral-100/70 dark:hover:bg-neutral-800/60"
@@ -510,6 +526,7 @@ export function DeveloperPortfolioFramed() {
                           <IconLink />
                           Demo
                         </a>
+                        */}
                       </div>
                     </div>
                   </Card>
@@ -522,6 +539,7 @@ export function DeveloperPortfolioFramed() {
       {/* Contact + Footer */}
       <section id="contact" className="w-full bg-white dark:bg-neutral-900 py-14 border-t border-neutral-200/70 dark:border-neutral-800/70">
         <div className="mx-auto max-w-6xl px-4">
+          {/*
           <SectionLabel text="contact" />
           <div className="mt-4 text-sm text-neutral-700 dark:text-neutral-300 space-y-1">
             <p>
@@ -543,8 +561,9 @@ export function DeveloperPortfolioFramed() {
               </a>
             </p>
           </div>
+          */}
           <footer className="mt-6 border-t border-neutral-200 dark:border-neutral-800 pt-4 text-xs text-neutral-500 dark:text-neutral-400 flex justify-between">
-            <span>© {new Date().getFullYear()} Hogeon Kim</span>
+            <span>© {new Date().getFullYear()} Hogun Kim</span>
             <a
             href="#home"
             onClick={(e) => {
