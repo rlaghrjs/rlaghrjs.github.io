@@ -196,7 +196,7 @@ export default function IntroPage() {
             <div className="flex justify-end">
               <Link
                 to="/"
-                className="inline-flex items-center rounded-lg border border-neutral-300 dark:border-neutral-700 px-4 py-2 text-sm font-medium hover:bg-neutral-100/80 dark:hover:bg-neutral-800/80 transition"
+                className="inline-flex items-center rounded-lg bg-emerald-600 px-4 py-2 text-sm font-medium text-white hover:bg-emerald-700 transition"
               >
                 ← 포트폴리오로 돌아가기
               </Link>
