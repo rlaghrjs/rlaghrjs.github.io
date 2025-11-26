@@ -1,5 +1,6 @@
 // src/Introduction.jsx
 import { Link } from "react-router-dom";
+import PrintButton from "./PrintButton";
 
 /* ---------- 포트폴리오 스타일에 맞춘 공통 컴포넌트 ---------- */
 
@@ -20,159 +21,198 @@ const Card = ({ children }) => (
   </div>
 );
 
-const Badge = ({ children }) => (
-  <span className="inline-flex items-center rounded-full border border-neutral-200/70 dark:border-neutral-700/80 px-2.5 py-0.5 text-xs text-neutral-700 dark:text-neutral-200">
-    {children}
-  </span>
-);
-
 /* ------------------------ 자기소개서 페이지 ------------------------ */
 
 export default function IntroPage() {
   return (
     <div className="min-h-screen bg-neutral-50 text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100">
-      {/* 헤더 (포트폴리오 동일 스타일) */}
-      <header className="sticky top-0 z-10 backdrop-blur bg-white/80 dark:bg-neutral-900/80 border-b border-neutral-200 dark:border-neutral-800 shadow-sm">
+      {/* 헤더 */}
+      <header className="no-print sticky top-0 z-10 backdrop-blur bg-white/80 dark:bg-neutral-900/80 border-b border-neutral-200 dark:border-neutral-800 shadow-sm">
         <div className="mx-auto max-w-6xl flex items-center px-6 py-3">
-          <Link to="/" className="font-semibold tracking-tight text-lg">
+          <Link to="/" className="font-semibold tracking-tight text-lg text-neutral-900 dark:text-neutral-50 hover:text-emerald-600 dark:hover:text-emerald-400 transition">
             김호건<span className="text-emerald-500">_</span>
           </Link>
 
           <nav className="ml-auto flex items-center gap-4 text-sm font-medium">
             <span className="text-neutral-500 dark:text-neutral-400">Portfolio</span>
-            <span className="text-emerald-600 dark:text-emerald-400">/ 자기소개서</span>
+            <span className="text-emerald-600 dark:text-emerald-400">/ 자기소개</span>
           </nav>
         </div>
       </header>
 
-      {/* 메인 콘텐츠 */}
       <main className="py-14">
         <div className="mx-auto max-w-6xl px-6 space-y-16">
-          {/* 소개 섹션 */}
-          <section>
-            <SectionLabel text="self-introduction" />
-            <h1 className="mt-4 text-4xl font-bold tracking-tight">
-              책임감 있게 성장하는
-              <br />
-              <span className="text-emerald-500">백엔드 &amp; AI 개발자</span> 김호건입니다.
-            </h1>
-
-            <p className="mt-4 text-base text-neutral-600 dark:text-neutral-300 leading-relaxed max-w-3xl">
-              웹과 모바일, 그리고 머신러닝을 결합해 <strong>실제로 사용하는 서비스</strong>를 만드는 데 가장 큰 흥미를 느낍니다.
-              작은 기능 하나라도 "왜 필요한지", "어떤 경험을 줄 수 있는지"를 고민하며 개발합니다.
-            </p>
-
-            <div className="mt-5 flex flex-wrap gap-2">
-              <Badge>Spring Boot / Java</Badge>
-              <Badge>Python / ML</Badge>
-              <Badge>Firebase / Android</Badge>
-              <Badge>문제 해결 중심 사고</Badge>
-            </div>
-          </section>
-
-          {/* 기본 정보 */}
+          <SectionLabel text="self-introduction" />
+          {/* -------------------- 기본 정보 -------------------- */}
           <section>
             <Card>
-              <div className="p-8 space-y-6 text-base text-neutral-700 dark:text-neutral-300">
-                <h2 className="text-xl font-semibold">기본 정보</h2>
+              <div className="p-10">
 
-                <div className="grid gap-4 sm:grid-cols-2">
-                  <div className="space-y-1">
-                    <div className="text-xs text-neutral-500">이름</div>
-                    <div className="font-medium">김호건</div>
+                <h2 className="text-2xl font-semibold mb-8 text-center">
+                  기본 정보
+                </h2>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-10 items-center">
+
+                  {/* 프로필 사진 */}
+                  <div className="flex justify-center">
+                    <img
+                      src="/rlaghrjs.png"
+                      alt="profile"
+                      className="w-40 h-[200px] object-cover rounded-lg shadow-sm border border-neutral-200 dark:border-neutral-800"
+                    />
                   </div>
 
-                  <div className="space-y-1">
-                    <div className="text-xs text-neutral-500">이메일</div>
-                    <a
-                      href="mailto:khg0954@naver.com"
-                      className="font-medium text-emerald-600 dark:text-emerald-400 hover:underline"
-                    >
-                      khg0954@naver.com
-                    </a>
-                  </div>
+                  <div className="md:col-span-2 space-y-6 text-[15px] leading-relaxed">
+                    <div className="grid grid-cols-4 gap-4">
+                      <span className="font-semibold text-right col-span-1">이름:</span>
+                      <span className="col-span-1">김호건</span>
 
-                  <div className="space-y-1">
-                    <div className="text-xs text-neutral-500">연락처</div>
-                    <div className="font-medium">010-4249-3909</div>
-                  </div>
-
-                  <div className="space-y-1">
-                    <div className="text-xs text-neutral-500">학력</div>
-                    <div className="font-medium">
-                      인하공업전문대학교 컴퓨터정보공학과 재학
+                      <span className="font-semibold text-right col-span-1">생년월일:</span>
+                      <span className="col-span-1">2002-01-23</span>
                     </div>
-                  </div>
 
-                  <div className="space-y-1">
-                    <div className="text-xs text-neutral-500">GitHub</div>
-                    <a
-                      href="https://github.com/rlaghrjs"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="font-medium text-emerald-600 dark:text-emerald-400 hover:underline"
-                    >
-                      github.com/rlaghrjs
-                    </a>
+                    <div className="grid grid-cols-4 gap-4">
+                      <span className="font-semibold text-right col-span-1">이메일:</span>
+                      <a
+                        className="col-span-1 text-emerald-600 dark:text-emerald-400 hover:underline"
+                      >
+                        khg0954@naver.com
+                      </a>
+
+                      <span className="font-semibold text-right col-span-1">연락처:</span>
+                      <span className="col-span-1">010-4249-3909</span>
+                    </div>
+
+                    <div className="grid grid-cols-4 gap-4">
+                      <span className="font-semibold text-right col-span-1">GitHub:</span>
+                      <a
+                        href="https://github.com/rlaghrjs"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-emerald-600 dark:text-emerald-400 hover:underline"
+                      >
+                        github.com/rlaghrjs
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
             </Card>
           </section>
 
-          {/* 본문 섹션들 */}
+
+
+          {/* -------------------- 학력 / 대외활동 내역 -------------------- */}
+          <section>
+            <Card>
+              <div className="p-8 text-base text-neutral-700 dark:text-neutral-300">
+                <div className="grid gap-10 md:grid-cols-2">
+                  <div>
+                    <h2 className="text-xl font-semibold mb-4 text-center">학력</h2>
+
+                    <table className="w-full text-sm border-t border-neutral-200 dark:border-neutral-800">
+                      <thead className="border-b border-neutral-200 dark:border-neutral-800 text-neutral-500 text-xs">
+                        <tr>
+                          <th className="py-2 font-medium w-[25%] text-left whitespace-nowrap">학교</th>
+                          <th className="py-2 font-medium w-[25%] text-center whitespace-nowrap">재학기간</th>
+                          <th className="py-2 font-medium w-[25%] text-center whitespace-nowrap">구분</th>
+                          <th className="py-2 font-medium w-[25%] text-center whitespace-nowrap">성적</th>
+                        </tr>
+                      </thead>
+
+                      <tbody className="divide-y divide-neutral-200 dark:divide-neutral-800">
+                        <tr>
+                          <td className="py-3 whitespace-nowrap text-left">창의고</td>
+                          <td className="py-3 whitespace-nowrap text-center">2018-03 ~ 2021-01</td>
+                          <td className="py-3 whitespace-nowrap text-center">졸업</td>
+                          <td className="py-3 whitespace-nowrap text-center">-</td>
+                        </tr>
+
+                        <tr>
+                          <td className="py-3 whitespace-nowrap text-left">인하공업전문대학</td>
+                          <td className="py-3 whitespace-nowrap text-center">2021-03 ~ 재학중</td>
+                          <td className="py-3 whitespace-nowrap text-center">재학</td>
+                          <td className="py-3 whitespace-nowrap text-center">4.07 / 4.5</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+         
+                  <div>
+                    <h2 className="text-xl font-semibold mb-4 text-center">대외활동</h2>
+
+                    <table className="w-full text-sm border-t border-neutral-200 dark:border-neutral-800">
+                      <thead className="border-b border-neutral-200 dark:border-neutral-800 text-neutral-500 text-xs">
+                        <tr>
+                          <th className="py-2 font-medium w-[33%] text-left whitespace-nowrap">기관</th>
+                          <th className="py-2 font-medium w-[33%] text-center whitespace-nowrap">기간</th>
+                          <th className="py-2 font-medium w-[34%] text-center whitespace-nowrap">구분</th>
+                        </tr>
+                      </thead>
+
+                      <tbody className="divide-y divide-neutral-200 dark:divide-neutral-800">
+                        <tr>
+                          <td className="py-3 whitespace-nowrap text-left">LG Aimers 6기</td>
+                          <td className="py-3 whitespace-nowrap text-center">2024-01 ~ 2024-02</td>
+                          <td className="py-3 whitespace-nowrap text-center">수료</td>
+                          <td className="py-3 whitespace-nowrap text-center">-</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </Card>
+          </section>
+
+
+          {/* -------------------- 자기소개 본문 -------------------- */}
           <section className="space-y-12">
             <Card>
               <div className="p-8 space-y-4 leading-relaxed text-base text-neutral-700 dark:text-neutral-300">
-                <h2 className="text-xl font-semibold">1. 문제 해결에 끌린 개발자의 시작</h2>
+                <h2 className="text-xl font-semibold">1. 성장배경</h2>
                 <p>
-                  개발을 처음 접했을 때 가장 흥미로웠던 점은 <strong>"문제를 정의하고 스스로 해결책을 설계할 수 있다"</strong>는 부분이었습니다.
-                  작은 콘솔 프로그램부터 시작해 웹, 모바일, 서버까지 다뤄 보면서
-                  사용자의 불편함을 줄이는 기능을 만들 때 가장 큰 보람을 느꼈습니다.
-                </p>
-                <p>
-                  팀 프로젝트를 통해 협업하며 단순히 동작하는 것을 넘어서
-                  <strong>구조와 유지보수성</strong>을 고민하게 되었고,
-                  자연스럽게 백엔드와 인프라, 데이터 처리 영역에 관심을 가지게 되었습니다.
+                  저는 어릴 때부터 주어진 일에 끝까지 책임을 다하려는 성향이 강했습니다. 특별히 화려한 에피소드가 있었다기보다는, 일상 속에서 맡은 역할을 꾸준히 지키는 경험들이 제 성격을 만들어왔습니다. 
+                  학창시절에는 조별과제나 동아리 활동에서 자연스럽게 중심 역할을 맡게 되었고, 친구들이 어려움에 부딪히면 함께 해결 방법을 고민하는 과정이 즐거웠습니다. 
+                  이런 경험들은 문제를 단순히 피하기보다 해결하려는 태도를 키워주었습니다. 대학에 진학한 후에도 이러한 모습은 계속되었습니다. 
+                  전공 공부와 프로젝트를 병행하며 새로운 기술을 익혀야 할 때가 많았지만, 스스로 찾아보고 이해할 때까지 반복하는 꾸준함이 큰 힘이 되었습니다. 
+                  팀 프로젝트에서는 의견 차이가 생기거나 계획이 어긋나는 순간도 있었지만, 대화를 통해 조율하고 모두가 만족할 수 있는 방향을 찾기 위해 노력했습니다. 작은 경험들이 모여 협업의 기본과 책임감을 자연스럽게 배울 수 있었습니다.
+                  돌이켜보면 제 성장 과정은 특별하지 않을 수 있지만, 그 속에서 얻은 꾸준함과 성실함은 지금의 저를 이루는 가장 큰 기반이라고 생각합니다. 앞으로도 새로운 환경 속에서도 성실함을 바탕으로 배우고 성장하는 자세를 잃지 않는 사람이 되고자 합니다.
                 </p>
               </div>
             </Card>
 
             <Card>
               <div className="p-8 space-y-4 leading-relaxed text-base text-neutral-700 dark:text-neutral-300">
-                <h2 className="text-xl font-semibold">2. 프로젝트로 배우는 백엔드와 AI</h2>
+                <h2 className="text-xl font-semibold">2. 성격의 장단점</h2>
                 <p>
-                  Spring Boot로 <strong>온라인 서점(BookMarket)</strong> 프로젝트를 진행하며
-                  회원, 장바구니, 주문, 관리자 기능까지 구현해 보았습니다.
-                  이를 통해 <strong>도메인 설계, JPA 기반 데이터 모델링, 계층형 아키텍처</strong>를 경험했습니다.
+                  저의 강점은 문제를 어떻게든 해결하고자 하는 집요한 탐구심과 실행력입니다. 
+                  학부 시절 Kinect 장치를 활용한 프로젝트를 진행할 때, 팀원 모두가 처음 접하는 장비라 초기 방향 설정이 쉽지 않았습니다. 
+                  저는 장치의 스펙 문서와 기능 자료를 직접 분석하며 핵심 성능을 빠르게 파악했고, 이를 기반으로 프로젝트의 구현 방향을 제시했습니다. 
+                  새로운 기술이 주어져도 주저하지 않고, 필요한 정보를 수집‧정리하여 실질적인 해결 방안을 제시하는 능력은 제가 IT 분야에서 가장 자신 있는 부분입니다.
                 </p>
                 <p>
-                  또 다른 프로젝트로는 <strong>운동 · 식단 관리 AI 어시스턴트</strong>를 개발했습니다.
-                  Flask와 TensorFlow로 심박수 기반 운동 추천과 식단 추천 기능을 만들고,
-                  Firebase로 인증과 데이터를 저장했습니다.
-                </p>
-                <p>
-                  시계열 데이터를 활용한 따릉이 수요 예측, 맛집 기록 Android 앱 등
-                  관심 있는 아이디어를 직접 구현하며
-                  <strong>"배운 것을 바로 써먹는 개발자"</strong>로 성장하고 있습니다.
+                  반면, 저는 의견 수용 과정에서 단호하게 선을 긋지 못하는 점을 보완해야 한다고 느낀 경험이 있습니다. 
+                  교내 일정 관리 프로그램 개발 당시, 팀원들의 다양한 아이디어를 모두 반영하려다 보니 기능 범위가 과도하게 확장되었고, 결국 제출 기한을 맞추지 못할 뻔했습니다. 
+                  그 이후로는 프로젝트의 우선순위와 범위를 명확히 정하고, 필요 시 일정과 품질을 위해 과감히 조정하거나 거절하는 연습을 해왔습니다. 
+                  이를 통해 현재는 팀 내 커뮤니케이션에서 현실적인 기준을 제시하고, 일정 관리에 더욱 책임감 있게 임하고 있습니다.
                 </p>
               </div>
             </Card>
 
             <Card>
               <div className="p-8 space-y-4 leading-relaxed text-base text-neutral-700 dark:text-neutral-300">
-                <h2 className="text-xl font-semibold">3. 저의 강점</h2>
-                <ul className="list-disc pl-5 space-y-2">
-                  <li>
-                    <strong>서비스 관점의 사고</strong> — 기능 구현에서 끝나지 않고 사용 경험과 흐름까지 고려합니다.
-                  </li>
-                  <li>
-                    <strong>끈기 있는 문제 해결</strong> — 에러와 문제를 끝까지 파고들어 해결하는 스타일입니다.
-                  </li>
-                  <li>
-                    <strong>협업과 커뮤니케이션</strong> — 작은 변경도 공유하며 팀과 함께 결정하는 문화를 중요하게 생각합니다.
-                  </li>
-                </ul>
+                <h2 className="text-xl font-semibold">3. 학교생활과 경험</h2>
+                <p>
+                  저는 새로운 기술을 탐구하고 문제를 해결하는 과정에서 강한 흥미를 느껴 IT 분야를 진로로 선택했습니다. 
+                  대학에서 다양한 전공 수업을 들으며 자료구조와 운영체제 등 기본기를 다졌고, 이론을 실제로 적용해보는 프로젝트 활동을 통해 실무 역량을 꾸준히 키웠습니다.
+                  특히 Kinect 장치를 활용한 프로젝트는 중요한 성장 경험이었습니다. 팀원 모두가 처음 접하는 장비라 접근이 어려웠지만, 저는 스펙 문서를 분석하며 장치의 기능을 빠르게 파악했고 이를 바탕으로 구현 방향을 제시하며 프로젝트의 기반을 잡았습니다. 
+                  또한 교내 일정 관리 프로그램 개발에서는 팀원들의 다양한 의견을 모두 수용하려다 기능이 과도하게 늘어나 일정에 영향을 주는 상황도 겪었습니다. 
+                  이 경험을 통해 협업에서는 기술뿐 아니라 범위 조절과 일정 관리가 중요하다는 것을 깨달았고, 필요할 때는 과감하게 우선순위를 조정하는 자세를 갖추게 되었습니다.
+                  이러한 학교생활과 프로젝트 경험을 통해 저는 새로운 기술을 빠르게 이해하고, 문제 상황에서도 해결 방향을 주도적으로 찾는 스타일로 성장했습니다. 
+                  앞으로도 책임감 있게 배우고 협업하며 실질적인 가치를 만드는 개발자가 되고자 합니다.
+                </p>
               </div>
             </Card>
 
@@ -180,23 +220,20 @@ export default function IntroPage() {
               <div className="p-8 space-y-4 leading-relaxed text-base text-neutral-700 dark:text-neutral-300">
                 <h2 className="text-xl font-semibold">4. 앞으로의 목표</h2>
                 <p>
-                  단기적으로는 Spring Boot와 Python 기반 기술 스택을 더욱 탄탄히 다져
-                  <strong>서비스를 설계부터 배포까지 책임질 수 있는 백엔드 개발자</strong>가 되는 것이 목표입니다.
-                </p>
-                <p>
-                  장기적으로는 성능과 안정성을 고려한 시스템을 설계하고 운영하며
-                  사용자와 팀 모두에게 신뢰받는 개발자로 성장하고 싶습니다.
+                  <strong>서비스 전체 흐름을 이해하고 설계할 수 있는 백엔드 개발자</strong>로 성장하고 싶습니다.
+                  단기적으로는 Spring Boot와 Python 기반 역량을 강화하고,
+                  장기적으로는 안정적이고 확장 가능한 시스템을 설계·운영하는 개발자를 지향합니다.
                 </p>
               </div>
             </Card>
           </section>
 
-          {/* 돌아가기 버튼 */}
           <section>
+            <PrintButton label="PDF 저장" />
             <div className="flex justify-end">
               <Link
                 to="/"
-                className="inline-flex items-center rounded-lg bg-emerald-600 px-4 py-2 text-sm font-medium text-white hover:bg-emerald-700 transition"
+                className="no-print inline-flex items-center rounded-lg bg-emerald-600 px-4 py-2 text-sm font-medium text-white hover:bg-emerald-700 transition"
               >
                 ← 포트폴리오로 돌아가기
               </Link>

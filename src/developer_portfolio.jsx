@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import { FaJava } from "react-icons/fa";
+import PrintButton from "./PrintButton"; 
 import {
   SiSpringboot,
   SiFirebase,
@@ -83,7 +84,7 @@ const SKILLS = [
   },
   {
     name: "TensorFlow",
-    level: 70,
+    level: 65,
     Icon: SiTensorflow,
     color: "bg-orange-400",
     iconClass: "text-orange-400",
@@ -150,7 +151,6 @@ const PROJECTS = [
   },
 ];
 
-/* ---------- 공통 훅: 게이지 애니메이션 ---------- */
 
 function useAnimatedLevels() {
   const [levels, setLevels] = useState(SKILLS.map(() => 0));
@@ -175,8 +175,6 @@ export function DeveloperPortfolioFramed() {
       {/* Header */}
       <header className="sticky top-0 z-10 backdrop-blur bg-white/80 dark:bg-neutral-900/80 border-b border-neutral-200 dark:border-neutral-800 shadow-sm">
         <div className="mx-auto max-w-6xl flex items-center px-6 py-3">
-
-          {/* 로고 클릭 → 홈 섹션 이동 */}
           <a
             href="#home"
             onClick={(e) => {
@@ -234,19 +232,6 @@ export function DeveloperPortfolioFramed() {
             >
               Projects
             </a>
-
-            {/*
-            <a
-              href="#contact"
-              onClick={(e) => {
-                e.preventDefault();
-                document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
-              }}
-               className="font-semibold tracking-tight text-base text-neutral-900 dark:text-neutral-50 hover:text-emerald-600 dark:hover:text-emerald-400 transition"
-            >
-              Contact
-            </a>
-            */}
           </nav>
         </div>
       </header>
@@ -265,13 +250,6 @@ export function DeveloperPortfolioFramed() {
           </h1>
           <br />
 
-          {/*
-          <p className="mt-5 text-sm sm:text-base text-neutral-600 dark:text-neutral-400 max-w-xl">
-            웹과 모바일, 머신러닝을 결합해 실제로 사람들이 쓰는 제품을 만드는 데 관심이 많습니다.
-            성능과 구조, 사용자 경험 사이의 균형을 고민합니다.
-          </p>
-          */}
-
           <div className="mt-7 flex flex-wrap gap-3 justify-center">
             <a
               href="#projects"
@@ -279,13 +257,13 @@ export function DeveloperPortfolioFramed() {
                 e.preventDefault();
                 document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
               }}
-              className="inline-flex items-center rounded-lg bg-emerald-600 px-4 py-2 text-sm font-medium text-white hover:bg-emerald-700 transition"
+              className="no-print inline-flex items-center rounded-lg bg-emerald-600 px-4 py-2 text-sm font-medium text-white hover:bg-emerald-700 transition"
             >
               프로젝트 보기
             </a>
            <Link
               to="/intro"
-              className="inline-flex items-center rounded-lg bg-emerald-600 px-4 py-2 text-sm font-medium text-white hover:bg-emerald-700 transition"
+              className="no-print inline-flex items-center rounded-lg bg-emerald-600 px-4 py-2 text-sm font-medium text-white hover:bg-emerald-700 transition"
             >
               자기소개서 보기
             </Link>
@@ -298,20 +276,17 @@ export function DeveloperPortfolioFramed() {
         <div className="mx-auto max-w-6xl px-4">
           <Card>
             <div className="p-6">
-
-              {/* Section Label */}
               <div className="font-mono text-sm text-emerald-400 flex items-center gap-2" aria-hidden>
                 <span>$</span>
                 <span> introduction</span>
                 <span className="ml-1 inline-block w-2 h-4 bg-emerald-400 animate-pulse" />
               </div>
 
-              {/* ✅ Info 영역 */}
               <div className="mt-5 space-y-3 text-sm text-neutral-700 dark:text-neutral-300">
 
                 <div className="flex gap-3">
                   <span className="font-semibold w-24">이름</span>
-                  <span>김호건</span> {/* 수정 가능 */}
+                  <span>김호건</span>
                 </div>
 
                 <div className="flex gap-3">
@@ -326,12 +301,12 @@ export function DeveloperPortfolioFramed() {
 
                 <div className="flex gap-3">
                   <span className="font-semibold w-24">연락처</span>
-                  <span>010-4249-3909</span> {/* 수정 가능 */}
+                  <span>010-4249-3909</span>
                 </div>
 
                 <div className="flex gap-3">
                   <span className="font-semibold w-24">학력</span>
-                  <span>인하공업전문대학교 컴퓨터정보공학과 재학</span> {/* 수정 가능 */}
+                  <span>인하공업전문대학교 컴퓨터정보공학과 재학</span>
                 </div>
 
                  <div className="flex gap-3">
@@ -347,7 +322,6 @@ export function DeveloperPortfolioFramed() {
                 </div>
               </div>
 
-              {/* ✅ 기존 태그 뱃지 유지 */}
               <div className="mt-6 flex flex-wrap gap-2">
                 <Badge>Backend &amp; AI</Badge>
                 <Badge>Spring / Flask</Badge>
@@ -368,7 +342,6 @@ export function DeveloperPortfolioFramed() {
         <div className="mx-auto max-w-6xl px-4">
           <SectionLabel text="skills" />
 
-          {/* ✅ 스킬 카드: 가로 3개(큰 화면 기준) */}
           <div className="mt-6 grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
             {SKILLS.map((skill, idx) => (
               <Card key={skill.name}>
@@ -385,7 +358,6 @@ export function DeveloperPortfolioFramed() {
                     </span>
                   </div>
 
-                  {/* 게이지 바 */}
                   <div className="w-full bg-neutral-200 dark:bg-neutral-800 rounded-full h-2 overflow-hidden">
                     <div
                       className={`h-2 rounded-full transition-all duration-700 ${skill.color}`}
@@ -393,7 +365,6 @@ export function DeveloperPortfolioFramed() {
                     />
                   </div>
 
-                  {/* 한 줄 설명 */}
                   <p className="mt-3 text-xs text-neutral-600 dark:text-neutral-400">
                     {skill.description}
                   </p>
@@ -402,35 +373,40 @@ export function DeveloperPortfolioFramed() {
             ))}
           </div>
 
-          {/* ✅ 기타 기술 스택 칸 */}
           <div className="mt-8">
             <h3 className="text-xs font-semibold text-neutral-500 dark:text-neutral-400 mb-2">
               Other tech stack
             </h3>
-            <div className="rounded-xl border border-dashed border-neutral-300 dark:border-neutral-700 px-4 py-3 text-xs text-neutral-600 dark:text-neutral-300 flex flex-wrap gap-2">
-              {/* 여기에 자유롭게 추가해서 쓰면 됨 */}
-              <span className="inline-flex items-center rounded-full border border-neutral-200 dark:border-neutral-700 px-2 py-0.5">
-                JavaScript
+
+            <div className="rounded-xl border border-dashed border-neutral-300 dark:border-neutral-700 px-4 py-4 text-xs text-neutral-600 dark:text-neutral-300 flex flex-wrap gap-2">
+
+              <span className="inline-flex items-center gap-1 rounded-full border border-neutral-200 dark:border-neutral-700 px-3 py-1">
+                JavaScript <span className="text-yellow-600 dark:text-emerald-400">(중)</span>
               </span>
-              <span className="inline-flex items-center rounded-full border border-neutral-200 dark:border-neutral-700 px-2 py-0.5">
-                React
-              </span>              
-              <span className="inline-flex items-center rounded-full border border-neutral-200 dark:border-neutral-700 px-2 py-0.5">
-                Gradle
+              
+              <span className="inline-flex items-center gap-1 rounded-full border border-neutral-200 dark:border-neutral-700 px-3 py-1">
+                React <span className="text-yellow-600 dark:text-emerald-400">(중)</span>
               </span>
-              <span className="inline-flex items-center rounded-full border border-neutral-200 dark:border-neutral-700 px-2 py-0.5">
-                MySQL
+
+              <span className="inline-flex items-center gap-1 rounded-full border border-neutral-200 dark:border-neutral-700 px-3 py-1">
+                Gradle <span className="text-yellow-600 dark:text-yellow-400">(중)</span>
               </span>
-              <span className="inline-flex items-center rounded-full border border-neutral-200 dark:border-neutral-700 px-2 py-0.5">
-                AWS
+
+              <span className="inline-flex items-center gap-1 rounded-full border border-neutral-200 dark:border-neutral-700 px-3 py-1">
+                MySQL <span className="text-emerald-600 dark:text-orange-400">(상)</span>
               </span>
-              <span className="inline-flex items-center rounded-full border border-neutral-200 dark:border-neutral-700 px-2 py-0.5">
-                Git
+
+              <span className="inline-flex items-center gap-1 rounded-full border border-neutral-200 dark:border-neutral-700 px-3 py-1">
+                AWS <span className="text-yellow-600 dark:text-orange-400">(중)</span>
               </span>
-              <span className="inline-flex items-center rounded-full border border-neutral-200 dark:border-neutral-700 px-2 py-0.5">
-                Docker
+
+              <span className="inline-flex items-center gap-1 rounded-full border border-neutral-200 dark:border-neutral-700 px-3 py-1">
+                Git <span className="text-emerald-600 dark:text-emerald-400">(상)</span>
               </span>
-              {/* 필요 없으면 전부 지우고 네가 원하는 스택만 남겨도 됨 */}
+
+              <span className="inline-flex items-center gap-1 rounded-full border border-neutral-200 dark:border-neutral-700 px-3 py-1">
+                Docker <span className="text-orange-600 dark:text-emerald-400">(하)</span>
+              </span>
             </div>
           </div>
         </div>
@@ -442,7 +418,6 @@ export function DeveloperPortfolioFramed() {
         <div className="mx-auto max-w-6xl px-4">
           <SectionLabel text="projects" />
 
-          {/* 대표 */}
           <div className="mt-6">
             <h3 className="text-sm font-semibold text-neutral-500 dark:text-neutral-400 mb-3">
               대표 프로젝트
@@ -472,15 +447,6 @@ export function DeveloperPortfolioFramed() {
                           <IconGitHub />
                           Code
                         </a>
-                        {/*
-                        <a
-                          href={p.links.demo}
-                          className="inline-flex items-center gap-2 rounded-lg border px-3 py-1.5 hover:bg-neutral-100/70 dark:hover:bg-neutral-800/60"
-                        >
-                          <IconLink />
-                          Demo
-                        </a>
-                        */}
                       </div>
                     </div>
                   </Card>
@@ -488,7 +454,6 @@ export function DeveloperPortfolioFramed() {
             </div>
           </div>
 
-          {/* 서브 */}
           <div className="mt-10">
             <h3 className="text-sm font-semibold text-neutral-500 dark:text-neutral-400 mb-3">
               서브 프로젝트
@@ -518,15 +483,6 @@ export function DeveloperPortfolioFramed() {
                           <IconGitHub />
                           Code
                         </a>
-                        {/*
-                        <a
-                          href={p.links.demo}
-                          className="inline-flex items-center gap-2 rounded-lg border px-3 py-1.5 hover:bg-neutral-100/70 dark:hover:bg-neutral-800/60"
-                        >
-                          <IconLink />
-                          Demo
-                        </a>
-                        */}
                       </div>
                     </div>
                   </Card>
@@ -539,31 +495,10 @@ export function DeveloperPortfolioFramed() {
       {/* Contact + Footer */}
       <section id="contact" className="w-full bg-white dark:bg-neutral-900 py-14 border-t border-neutral-200/70 dark:border-neutral-800/70">
         <div className="mx-auto max-w-6xl px-4">
-          {/*
-          <SectionLabel text="contact" />
-          <div className="mt-4 text-sm text-neutral-700 dark:text-neutral-300 space-y-1">
-            <p>
-              이메일:{" "}
-              <a
-                href="mailto:example@email.com"
-                className="text-emerald-600 dark:text-emerald-400 hover:underline"
-              >
-                example@email.com
-              </a>
-            </p>
-            <p>
-              GitHub:{" "}
-              <a
-                href="https://github.com/"
-                className="text-emerald-600 dark:text-emerald-400 hover:underline"
-              >
-                https://github.com/
-              </a>
-            </p>
-          </div>
-          */}
+
           <footer className="mt-6 border-t border-neutral-200 dark:border-neutral-800 pt-4 text-xs text-neutral-500 dark:text-neutral-400 flex justify-between">
             <span>© {new Date().getFullYear()} Hogun Kim</span>
+            <PrintButton label="PDF 저장" />
             <a
             href="#home"
             onClick={(e) => {

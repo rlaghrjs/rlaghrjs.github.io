@@ -76,3 +76,20 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+/* 인쇄 시 숨기고 싶은 요소들 */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  /* 배경 깔끔하게 */
+  body {
+    background: #ffffff !important;
+  }
+
+  /* 필요하면 여백 조정도 가능 */
+  @page {
+    margin: 16mm;
+  }
+}
