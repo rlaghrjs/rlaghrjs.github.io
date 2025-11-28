@@ -102,18 +102,6 @@ const SKILLS = [
 
 const PROJECTS = [
   {
-    id: "health-ai",
-    category: "main",
-    title: "운동 · 식단 관리 AI 어시스턴트",
-    summary:
-      "심박수 기반 운동 추천, 개인 맞춤형 식단 추천을 제공하는 Flask + Firebase + ML 기반 건강 관리 서비스.",
-    stack: ["Flask", "Firebase", "TensorFlow", "React", "Python"],
-    links: {
-      github: "https://github.com/",
-      demo: "#",
-    },
-  },
-  {
     id: "bookmarket",
     category: "main",
     title: "BookMarket 온라인 서점",
@@ -121,34 +109,71 @@ const PROJECTS = [
       "Spring Boot 기반의 온라인 도서 쇼핑몰. 회원/장바구니/주문/관리자 기능까지 구현.",
     stack: ["Spring Boot", "Thymeleaf", "MySQL", "JPA"],
     links: {
-      github: "https://github.com/",
+      github: "https://github.com/rlaghrjs/BookMarket",
       demo: "#",
     },
   },
   {
     id: "foodmap",
-    category: "sub",
+    category: "main",
     title: "맛집 기록/리뷰 Android 앱",
     summary:
       "지도를 기반으로 맛집을 등록하고 태그, 평점, 메모를 관리하는 앱. Firebase Auth/Storage 연동.",
     stack: ["Android", "Kotlin/Java", "Firebase", "Google Maps"],
     links: {
-      github: "https://github.com/",
+      github: "https://github.com/rlaghrjs/Android-Application",
       demo: "#",
     },
   },
   {
     id: "bike-forecast",
-    category: "sub",
+    category: "main",
     title: "서울 따릉이 수요 예측",
     summary:
       "시계열 데이터를 활용한 따릉이 수요 예측 ML 모델 구현 및 시각화 미니 프로젝트.",
     stack: ["Python", "Pandas", "scikit-learn", "Matplotlib"],
     links: {
-      github: "https://github.com/",
+      github: "https://github.com/rlaghrjs/AI",
       demo: "#",
     },
   },
+  {
+  id: "web-community-project",
+  category: "main",
+  title: "JSP 기반 커뮤니티 웹 서비스",
+  summary:
+    "회원가입, 로그인, 게시글 작성·수정·삭제, 댓글 기능을 갖춘 MVC 구조의 JSP/Servlet 웹 애플리케이션. Front Controller 패턴 기반으로 커뮤니티 서비스 전체 흐름을 구현.",
+  stack: ["Java", "Servlet/JSP", "JSTL"],
+  links: {
+    github: "https://github.com/rlaghrjs/Web",
+    demo: "#",                       
+  },
+  },
+  {
+  id: "kinect-project",
+  category: "main",
+  title: "Kinect 기반 영단어 학습 어플리케이션",
+  summary:
+    "Kinect 센서 기반의 스켈레톤, 조인트를 이용하여 떨어지는 영어 단어를 잡고 정답을 선택하는 프로젝트",
+  stack: ["C#", "Kinect"],
+  links: {
+    github: "https://github.com/rlaghrjs/Kinect",
+    demo: "#",                       
+  },
+  },
+  {
+  id: "swing-member-system",
+  category: "main",
+  title: "재고관리 프로그램",
+  summary:
+    "Java Swing GUI와 Oracle DB를 기반으로 재고등록, 조회, 수정 기능을 구현한 데스크톱 애플리케이션. reCAPTCHA 기반 Bot 방지 기능과 사용자 계정을 기반으로 독립적인 서비스를 제공.",
+  stack: ["Java", "Swing", "OracleDB", "JDBC"],
+  links: {
+    github: "https://github.com/rlaghrjs/Java-Project",
+    demo: "#",
+  },
+  }
+
 ];
 
 
@@ -424,7 +449,7 @@ export function DeveloperPortfolioFramed() {
             </h3>
             <div className="grid gap-4 md:grid-cols-2">
               {PROJECTS.filter((p) => p.category === "main")
-                .slice(0, 2)
+                .slice(0, 6)
                 .map((p) => (
                   <Card key={p.id}>
                     <div className="p-5 flex h-full flex-col">
@@ -439,12 +464,16 @@ export function DeveloperPortfolioFramed() {
                           <Badge key={s}>{s}</Badge>
                         ))}
                       </div>
-                      <div className="mt-4 flex gap-2 text-sm">
+                      <div className="mt-4 flex justify-end text-sm pr-6">
                         <a
                           href={p.links.github}
-                          className="inline-flex items-center gap-2 rounded-lg border px-3 py-1.5 hover:bg-neutral-100/70 dark:hover:bg-neutral-800/60"
+                          className="inline-flex items-center gap-2 rounded-lg border px-3 py-1.5 
+                                    text-emerald-600 dark:text-emerald-400 
+                                    hover:bg-neutral-100/70 dark:hover:bg-neutral-800/60
+                                    hover:text-emerald-700 dark:hover:text-emerald-300
+                                    transition"
                         >
-                          <IconGitHub />
+                          <IconGitHub className="text-emerald-600 dark:text-emerald-400" />
                           Code
                         </a>
                       </div>
@@ -454,6 +483,7 @@ export function DeveloperPortfolioFramed() {
             </div>
           </div>
 
+          {/*
           <div className="mt-10">
             <h3 className="text-sm font-semibold text-neutral-500 dark:text-neutral-400 mb-3">
               서브 프로젝트
@@ -489,6 +519,8 @@ export function DeveloperPortfolioFramed() {
                 ))}
             </div>
           </div>
+          */}
+
         </div>
       </section>
 

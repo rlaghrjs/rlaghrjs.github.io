@@ -1,4 +1,3 @@
-// src/components/PrintButton.jsx
 export default function PrintButton({ label = "PDF로 저장" }) {
   const handlePrint = () => {
     window.print();
